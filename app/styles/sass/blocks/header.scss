@@ -1,0 +1,396 @@
+// * {
+//     margin: 0;
+//     padding: 0;
+// }
+
+.header {
+    position: relative;
+    padding-top: 150px;
+    text-align: center;
+    background-image: url(../../../images/dist/mainImage-1.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain; // так как намекете максимальная ширина 1440px он на широкоформатке смотрится убого. пришлось так выкручиваться, контейнер в блоке header дизайном не предусмотрен  
+    min-height: 810px;
+    transition: background 1s ease;
+}
+
+.main-heading {
+    position: relative;
+    z-index: 10000;
+
+    h2 {
+        font-family: gilroy-rep, sans-serif;
+        font-size: 64px;
+        color: $textcolor;
+        margin-bottom: 48px;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px $textcolor;
+        }
+    }
+}
+
+.menu-top_whited {
+
+    .nav-menu__item a,
+    .menu-top__center,
+    .menu-top__map_img,
+    .menu-top__phone_img,
+    .hidden-addres,
+    .hidden-phone {
+        color: #fff;
+    }
+}
+
+.whited {
+    .main-heading h2 {
+        color: #fff;
+
+        span {
+            -webkit-text-stroke: 1px #fff;
+        }
+    }
+}
+
+.header-black * {
+    color: $textcolor;
+    border-bottom: $textcolor;
+
+}
+
+.main-img {
+    margin-top: 84px;
+}
+
+//Menu Top
+
+.menu-top {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: $size;
+    top: 0;
+    border-bottom: 1px solid #EBEBEB;
+    z-index: 10000;
+    align-items: center;
+    justify-content: space-between;
+    font-family: gilroy-rep, sans-serif;
+    font-size: $fontsize;
+    font-weight: 800;
+
+    &:hover {
+        .icon-Logo {
+            color: $accent;
+        }
+    }
+}
+
+.menu-top__center {
+    font-size: 30px;
+    color: $textcolor;
+}
+
+.menu-top__map {
+    flex: 0 0 $size;
+    height: $size;
+    border-right: 1px solid #EBEBEB;
+}
+
+.menu-top__map_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: $size;
+    height: $size;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba($color: $textcolor, $alpha: 0.7);
+
+    &:hover {
+        color: $accent;
+    }
+}
+
+.menu-top__phone {
+    flex: 0 0 $size;
+    text-align: right;
+    height: $size;
+    border-left: 1px solid #EBEBEB;
+}
+
+.menu-top__phone_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: $size;
+    height: $size;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba($color: $textcolor, $alpha: 0.7);
+
+    &:hover {
+        color: $accent;
+    }
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.nav-menu__item {
+    display: flex;
+    margin: 0 25px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.nav-menu__item a {
+    text-decoration: none;
+    color: rgba($color: $textcolor, $alpha: 0.7);
+    transition: color 0.25s;
+
+    &::after {
+        display: block;
+        position: relative;
+        right: 0;
+        bottom: -30px;
+        width: 0;
+        height: 1.5px;
+        background-color: $textcolor;
+        content: "";
+        transition: width 0.5s;
+    }
+
+    &:hover {
+        color: $textcolor;
+    }
+
+    &:hover::after {
+        width: 100%;
+        display: block;
+        position: relative;
+        left: 0;
+        bottom: -30px;
+        height: 1.5px;
+        background-color: $textcolor;
+        content: "";
+        transition: width 0.5s;
+    }
+}
+
+.menu-top__items {
+    text-align: center;
+    justify-content: space-between;
+}
+
+.main-menu {
+    display: flex;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+    animation: fadeOutFromBlock 1s ease-in-out;
+}
+
+.show {
+    opacity: 1;
+    display: flex;
+    animation: fadeInFromNone 1s ease-in-out;
+
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutFromBlock {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.hidden-addres {
+    height: $size;
+    font-family: gilroy-rep, sans-serif;
+    font-size: $fontsize;
+    color: $textcolor;
+    align-items: center;
+    font-weight: 800;
+    z-index: -1;
+}
+
+.hidden-phone {
+    height: $size;
+    font-family: gilroy-rep, sans-serif;
+    font-size: 30px;
+    color: $textcolor;
+    align-items: center;
+    font-weight: 800;
+    z-index: -1;
+
+    button {
+        margin-left: 30px;
+    }
+}
+
+.hidden-addres__separator {
+    width: 1px;
+    height: 20px;
+    background-color: #EBEBEB;
+    margin: 0 20px;
+}
+
+.hidden-addres__accent {
+    font-family: gilroy-rep, sans-serif;
+    font-size: $fontsize;
+    color: $accent;
+    font-weight: 800;
+}
+
+
+// Menu Bottom
+
+.menu-bottom {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: $size;
+    bottom: 85px;
+    z-index: 10;
+    align-items: center;
+}
+
+.menu-bottom__separator {
+    width: 1px;
+    height: 100%;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+}
+
+.menu-bottom__items {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    font-family: gilroy-rep, sans-serif;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba($color: #fff, $alpha: 0.3);
+    padding-left: 0;
+}
+
+.menu-bottom__item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-bottom__item a {
+    position: relative;
+    margin: auto;
+    text-decoration: none;
+    color: rgba($color: #fff, $alpha: 0.7);
+    transition: color 0.25s;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-bottom__sub {
+    position: absolute;
+    bottom: 0;
+    display: none;
+    height: 723px;
+    width: 100%;
+}
+
+//для задания цветов создадим отдельный класс
+.color_a {
+    background-color: #EB5757;
+}
+
+.color_b {
+    background-color: #219653;
+}
+
+.color_c {
+    background-color: #2F80ED;
+}
+
+.color_d {
+    background-color: #9B51E0;
+}
+
+.menu-bottom__content {
+    position: absolute;
+    width: 280px;
+    font-family: montserrat-rep;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -140px;
+
+    h3 {
+        font-family: gilroy-rep;
+        font-size: 20px;
+        font-weight: 800;
+    }
+}
+
+.menu-bottom__text {
+    margin-bottom: 20px;
+}
+
+.round-button__menu {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.setka {
+    width: 100%;
+
+    .row {
+        display: flex;
+
+        &__first-level:nth-child(n+2) {
+            margin-top: 10px;
+        }
+    }
+
+    .column {
+        &:nth-child(n+2) {
+            margin-left: 10px;
+        }
+
+        &.__sise {
+            &_33 {
+                width: calc(100% / 3 - 10px);
+            }
+        }
+    }
+}
